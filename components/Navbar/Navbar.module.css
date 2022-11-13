@@ -1,0 +1,12 @@
+.icon{
+    color: coral;
+}
+
+.listItemText {
+    color: white;
+}
+
+.listItem{
+    margin: 10% 0;
+    display: block;
+}
