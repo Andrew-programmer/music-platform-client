@@ -1,0 +1,22 @@
+.MainBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-top: 5rem;
+
+  .Wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    background: black;
+    margin-top: 5rem;
+    color: white;
+  }
+
+
+  .Step:hover {
+    cursor: pointer;
+  }
+}
+
+

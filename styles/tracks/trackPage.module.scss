@@ -1,0 +1,45 @@
+.Body{
+    margin: 1rem 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 1rem;
+
+    .Card{
+        background: black;
+        color: white;
+        border-radius: 1rem;
+        padding: 0.5rem;
+    }
+
+    .Comments{
+        grid-column: 1/1;
+        grid-row: 2/2;
+    }
+
+    .Words{
+        grid-column: 2/2;
+        grid-row: 1/3;
+    }
+
+    .TrackInfoContainer{
+        display: flex;
+
+        .TrackInfoBlock{
+            margin-left: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .Listens{
+                align-self: flex-end;
+
+            }
+
+            .Artist{
+                color: coral;
+                opacity: 0.4;
+            }
+        }
+    }
+}

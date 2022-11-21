@@ -1,9 +1,10 @@
 import {IComment} from "./icomment";
 
 export interface ITrack {
-    _id: number;
+    _id: string;
     name: string;
     text: string;
+    artist: string;
     listens: number;
     picture: string;
     audio: string;

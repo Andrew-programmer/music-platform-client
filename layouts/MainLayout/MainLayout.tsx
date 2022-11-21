@@ -3,11 +3,16 @@ import {Container} from "@mui/material";
 import styles from './MainLayout.module.css';
 import Navbar from "../../components/Navbar/Navbar";
 
-const MainLayout: React.FC = ({children}) => {
+interface MainLayoutProps {
+    children: React.ReactNode;
+    externalClasses?: string;
+}
+
+const MainLayout: React.FC<MainLayoutProps> = ({children, externalClasses = ''}) => {
     return (
         <>
             <Navbar/>
-            <Container className={styles.Main}>
+            <Container className={styles.Main + ' ' + externalClasses}>
                 {children}
             </Container>
         </>
