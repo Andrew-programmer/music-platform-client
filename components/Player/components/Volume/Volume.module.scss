@@ -1,0 +1,13 @@
+.Main{
+  margin-left: 1rem;
+  opacity: 0.5;
+  transition: 0.2s;
+
+  &:hover{
+    opacity: 1;
+  }
+
+  .VolumeIcon{
+    opacity: 0.3;
+  }
+}

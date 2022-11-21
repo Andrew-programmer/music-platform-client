@@ -1,0 +1,14 @@
+.Player{
+  height: 2rem;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: 0fr 0.1fr 0.6fr 0.2fr;
+  grid-gap: 1rem;
+  background: black;
+  padding: 1rem 3rem;
+  z-index: 10;
+  box-shadow: 0 0 5px 0 black;
+}

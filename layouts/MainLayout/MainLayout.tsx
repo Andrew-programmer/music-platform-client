@@ -2,6 +2,7 @@ import React from 'react';
 import {Container} from "@mui/material";
 import styles from './MainLayout.module.css';
 import Navbar from "../../components/Navbar/Navbar";
+import Player from "../../components/Player/Player";
 
 interface MainLayoutProps {
     children: React.ReactNode;
@@ -15,6 +16,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({children, externalClasses = ''})
             <Container className={styles.Main + ' ' + externalClasses}>
                 {children}
             </Container>
+            <Player/>
         </>
     );
 };

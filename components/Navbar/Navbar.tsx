@@ -32,6 +32,7 @@ const closedMixin = (theme: Theme): CSSObject => ({
     width: `calc(${theme.spacing(7)} + 1px)`,
     background: '#0e0e0e',
     transition: '0.2s ease',
+    zIndex: 9,
     borderRight: '1px black solid',
     [theme.breakpoints.up('sm')]: {
         width: `calc(${theme.spacing(8)} + 1px)`,
