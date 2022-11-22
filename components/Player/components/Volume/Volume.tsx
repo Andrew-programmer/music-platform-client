@@ -5,6 +5,7 @@ import {Box} from "@mui/system";
 import {useTheme} from "@mui/material/styles";
 
 import styles from './Volume.module.scss';
+import VolumeValue from "./component/VolumeValue";
 
 const Volume = () => {
     const theme = useTheme();
@@ -54,17 +55,7 @@ const Volume = () => {
                     },
                 }}
             />
-            <Box
-                sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    mt: -2,
-                }}
-            >
-                <VolumeDownRounded htmlColor={'white'}  className={styles.VolumeIcon}/>
-                <VolumeUpRounded htmlColor={'white'} className={styles.VolumeIcon}/>
-            </Box>
+            <VolumeValue/>
         </div>
 
     );

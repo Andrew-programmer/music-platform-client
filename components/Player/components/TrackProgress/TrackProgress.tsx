@@ -4,19 +4,13 @@ import {Slider, Typography} from "@mui/material";
 import {Box, styled} from "@mui/system";
 
 import styles from './TrackProgress.module.scss';
+import TrackTime from "./components/TrackTime";
 
 interface TrackProgressProps {
     left?: number;
     right?: number;
     onChange?: Function;
 }
-
-const TinyText = styled(Typography)({
-    fontSize: '0.75rem',
-    opacity: 0.38,
-    fontWeight: 500,
-    letterSpacing: 0.2,
-});
 
 
 const TrackProgress: React.FC<TrackProgressProps> = ({left, right, onChange}) => {
@@ -25,11 +19,7 @@ const TrackProgress: React.FC<TrackProgressProps> = ({left, right, onChange}) =>
     const [position, setPosition] = React.useState(32);
     const [paused, setPaused] = React.useState(false);
 
-    function formatDuration(value: number) {
-        const minute = Math.floor(value / 60);
-        const secondLeft = value - minute * 60;
-        return `${minute}:${secondLeft < 10 ? `0${secondLeft}` : secondLeft}`;
-    }
+
 
     return (
         <div>
@@ -69,17 +59,7 @@ const TrackProgress: React.FC<TrackProgressProps> = ({left, right, onChange}) =>
                     },
                 }}
             />
-            <Box
-                sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    mt: -2,
-                }}
-            >
-                <TinyText>{formatDuration(position)}</TinyText>
-                <TinyText>-{formatDuration(duration - position)}</TinyText>
-            </Box>
+            <TrackTime duration={duration} position={position}/>
         </div>
     );
 };
