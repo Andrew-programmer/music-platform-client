@@ -11,7 +11,6 @@ const Index: React.FC = () => {
                     <h3>Here you can find best music!</h3>
                 </div>
             </MainLayout>
-
         </>
 
     );
