@@ -7,24 +7,31 @@ import InfoForm from "../../components/Forms/InfoForm/InfoForm";
 import FileUpload from "../../components/Forms/FileUpload/FileUpload";
 import {Button} from "@mui/material";
 import LoadField from "../../components/Forms/FileUpload/components/LoadField";
+import {useInput} from "../../hooks/useInput";
 
 const Create = () => {
     const [activeStep, setActiveStep] = useState(0);
     const [picture, setPicture] = useState(null);
     const [audio, setAudio] = useState(null)
-    const limit = 4;
+    const limit = 2;
+
+    const name = useInput('');
+    const artist = useInput('');
+    const text = useInput('');
+
 
     const checkStep = (higher?: boolean) => {
         if (higher) {
             return activeStep >= 1;
         } else {
-            return activeStep <= limit;
+            console.log(activeStep);
+            return activeStep < limit;
         }
     }
 
     const renderForm = (step: number) => {
         if (step === 0) {
-            return <InfoForm/>
+            return <InfoForm inputs={{name, artist, text}}/>
         } else if (step === 1) {
             return <FileUpload setFile={setPicture} accept={'image/*'}>
                 <LoadField>
@@ -45,7 +52,7 @@ const Create = () => {
             <StepWrapper activeStep={activeStep} setStep={setActiveStep}>
                 {renderForm(activeStep)}
             </StepWrapper>
-            <StepperNav setStep={setActiveStep} checkStep={checkStep}/>
+            <StepperNav setStep={setActiveStep} checkStep={checkStep} inputs={{name, artist, text, audio, picture}}/>
         </MainLayout>
     );
 };
