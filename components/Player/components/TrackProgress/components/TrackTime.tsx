@@ -12,9 +12,10 @@ const TinyText = styled(Typography)({
 interface TinyTextProps {
     duration: number;
     position: number;
+    slash?: boolean;
 }
 
-const TrackTime: React.FC<TinyTextProps> = ({duration, position}) => {
+const TrackTime: React.FC<TinyTextProps> = ({duration, position, slash}) => {
 
     function formatDuration(value: number) {
         const minute = Math.floor(value / 60);
@@ -32,7 +33,15 @@ const TrackTime: React.FC<TinyTextProps> = ({duration, position}) => {
             }}
         >
             <TinyText>{formatDuration(position)}</TinyText>
-            <TinyText>-{formatDuration(duration - position)}</TinyText>
+            {
+                slash ? <TinyText> / </TinyText>: null
+            }
+            {
+                slash ?
+                    <TinyText>{formatDuration(duration)}</TinyText>
+                    :
+                    <TinyText>-{formatDuration(duration - position)}</TinyText>
+            }
         </Box>
     );
 };

@@ -5,6 +5,7 @@ import styles from '../../styles/tracks/tracks.module.css';
 import {ITrack} from "../../types/track";
 import TrackList from "../../components/TrackList/TrackList";
 import {useTypeSelector} from "../../hooks/useTypeSelector";
+import {useActions} from "../../hooks/useActions";
 
 const Index: React.FC = () => {
     const tracks: ITrack[] = [

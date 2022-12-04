@@ -1,20 +1,26 @@
 import React from 'react';
 import {Slider} from "@mui/material";
-import {VolumeDownRounded, VolumeUpRounded} from "@mui/icons-material";
-import {Box} from "@mui/system";
 import {useTheme} from "@mui/material/styles";
 
 import styles from './Volume.module.scss';
 import VolumeValue from "./component/VolumeValue";
+import {useTypeSelector} from "../../../../hooks/useTypeSelector";
 
-const Volume = () => {
+interface VolumeProps {
+    setVolume: Function;
+}
+
+const Volume: React.FC<VolumeProps> = ({setVolume}) => {
     const theme = useTheme();
+    const {volume} = useTypeSelector(state => state.player);
+
 
     return (
         <div className={styles.Main}>
             <Slider
                 aria-label="Volume"
-                defaultValue={30}
+                value={volume}
+                onChange={setVolume}
                 valueLabelDisplay="on"
                 sx={{
                     height: 4,

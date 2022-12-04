@@ -5,19 +5,17 @@ import {Box, styled} from "@mui/system";
 
 import styles from './TrackProgress.module.scss';
 import TrackTime from "./components/TrackTime";
+import {useTypeSelector} from "../../../../hooks/useTypeSelector";
 
 interface TrackProgressProps {
-    left?: number;
-    right?: number;
-    onChange?: Function;
+    setCurrentTime?: Function;
 }
 
 
-const TrackProgress: React.FC<TrackProgressProps> = ({left, right, onChange}) => {
+const TrackProgress: React.FC<TrackProgressProps> = ({setCurrentTime}) => {
     const theme = useTheme();
-    const duration = 200; // seconds
-    const [position, setPosition] = React.useState(32);
-    const [paused, setPaused] = React.useState(false);
+
+    const {currentTime, duration} = useTypeSelector(state => state.player);
 
 
 
@@ -26,12 +24,12 @@ const TrackProgress: React.FC<TrackProgressProps> = ({left, right, onChange}) =>
             <Slider
                 aria-label="time-indicator"
                 size="small"
-                value={position}
+                value={currentTime}
                 min={0}
                 step={1}
                 max={duration}
                 className={styles.Slider}
-                onChange={(_, value) => setPosition(value as number)}
+                onChange={setCurrentTime}
                 sx={{
                     color: 'coral',
                     height: 4,
@@ -59,7 +57,7 @@ const TrackProgress: React.FC<TrackProgressProps> = ({left, right, onChange}) =>
                     },
                 }}
             />
-            <TrackTime duration={duration} position={position}/>
+            <TrackTime duration={duration} position={currentTime}/>
         </div>
     );
 };
