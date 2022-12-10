@@ -1,0 +1,15 @@
+.MainContainer {
+  background-color: #0e0e0ee0;
+  border-radius: 0.2rem;
+  padding: 1rem;
+
+  .Box{
+    margin: 0.8rem 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .Divider{
+    color: rgba(45, 45, 45, 0.88);
+  }
+}

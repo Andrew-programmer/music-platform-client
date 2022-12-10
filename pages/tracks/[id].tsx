@@ -2,14 +2,20 @@ import React, {useState} from 'react';
 import MainLayout from "../../layouts/MainLayout/MainLayout";
 import {ITrack} from "../../types/track";
 import {useRouter} from "next/router";
-import {Box, Card, Grid} from "@mui/material";
+import {Box, Card, Grid, IconButton} from "@mui/material";
 
 import styles from '../../styles/tracks/trackPage.module.scss'
 import {GetServerSideProps} from "next";
 import {API, TRACK} from "../../serverInfo";
 import axios from "axios";
+import AddIcon from '@mui/icons-material/Add';
+import {Comment} from "../../components/Comment/Comment";
 
-const TrackPage = ({serverTrack}) => {
+interface TrackPageProps {
+    serverTrack: ITrack;
+}
+
+const TrackPage: React.FC<TrackPageProps> = ({serverTrack}) => {
     const [track, setTrack] = useState();
     const router = useRouter();
 
@@ -34,10 +40,17 @@ const TrackPage = ({serverTrack}) => {
                     </Box>
                 </Box>
                 <Card className={styles.Card + ' ' + styles.Words}>
-                    Words
+                    {serverTrack.text}
                 </Card>
                 <Card className={styles.Card + ' ' + styles.Comments}>
-                    Comments
+                    <Box className={styles.AddIconContainer}>
+                        <IconButton>
+                            <AddIcon className={styles.Icon}/>
+                        </IconButton>
+                    </Box>
+                    <Box>
+                        <Comment/>
+                    </Box>
                 </Card>
             </Grid>
         </MainLayout>

@@ -15,7 +15,20 @@
     .Comments{
         grid-column: 1/1;
         grid-row: 2/2;
+
+        .AddIconContainer{
+            display: flex;
+            position: sticky;
+            top: 0;
+            justify-content: end;
+
+            .Icon{
+                color: white;
+            }
+        }
     }
+
+
 
     .Words{
         grid-column: 2/2;
