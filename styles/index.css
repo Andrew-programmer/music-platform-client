@@ -6,3 +6,19 @@ body {
 * {
     font-family: 'Roboto', sans-serif;
 }
+
+::-webkit-scrollbar{
+    width: 0.36rem;
+}
+::-webkit-scrollbar-track{
+    transition: 0.1s ease;
+    background: transparent;
+}
+::-webkit-scrollbar-thumb{
+    transition: background-color 0.2s ease;
+    background-color: rgba(255, 129, 82, 0.3);
+    border-radius: 1rem;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: rgba(255, 129, 82, 0.7);
+}

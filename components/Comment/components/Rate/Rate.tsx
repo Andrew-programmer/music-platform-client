@@ -2,7 +2,6 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import React from "react";
 
-import styles from './Rate.module.scss';
 
 interface RateProps {
     isPositive?: boolean;

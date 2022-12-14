@@ -1,3 +1,9 @@
+.Alert{
+    position: fixed;
+    right: 1rem;
+    top: 1rem;
+}
+
 .Body{
     margin: 1rem 0;
     display: grid;
@@ -9,18 +15,30 @@
         background: black;
         color: white;
         border-radius: 1rem;
-        padding: 0.5rem;
+        padding: 0 0.5rem 0.5rem 0.5rem;
     }
 
     .Comments{
         grid-column: 1/1;
         grid-row: 2/2;
+        height: 21rem;
+        overflow: auto;
+
+        .NoCommentsText{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0.2;
+        }
 
         .AddIconContainer{
             display: flex;
+            justify-content: space-between;
             position: sticky;
-            top: 0;
-            justify-content: end;
+            width: 100%;
+            align-items: center;
+            backdrop-filter: blur(15px);
+            top: 0  ;
 
             .Icon{
                 color: white;
