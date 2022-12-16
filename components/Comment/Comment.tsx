@@ -11,9 +11,10 @@ import ClearIcon from '@mui/icons-material/Clear';
 
 interface CommentProps {
     isNew?: boolean;
+    handleClear?: Function;
 }
 
-export const Comment: React.FC<CommentProps> = ({isNew = false}) => {
+export const Comment: React.FC<CommentProps> = ({isNew = false, handleClear}) => {
 
     return (
         <Box className={styles.MainContainer}>
@@ -44,7 +45,7 @@ export const Comment: React.FC<CommentProps> = ({isNew = false}) => {
                                 width: '100%'
                             }} multiline maxRows={5} placeholder={'Comment text'}/>
                             <Box className={styles.AskField}>
-                                <IconButton color={'error'}>
+                                <IconButton color={'error'} onClick={handleClear}>
                                     <ClearIcon/>
                                 </IconButton>
                                 <IconButton color={'success'}>

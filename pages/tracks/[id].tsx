@@ -22,14 +22,17 @@ function CloseIcon(props: { fontSize: string }) {
 const TrackPage: React.FC<TrackPageProps> = ({serverTrack}) => {
     const [track, setTrack] = useState();
     const [comments, setComments] = useState([]);
-    const [newComment, setNewComment] = useState([]);
+    const [newComment, setNewComment] = useState(false);
 
     const [open, setOpen] = useState(false);
 
+    const handleClearCommentClick = () => {
+        setNewComment(false);
+    }
 
     const handleAddCommentsClick = () => {
-        if(newComment.length === 0){
-            setNewComment(prevState => [...prevState, <Comment isNew={true}/>])
+        if(!newComment){
+            setNewComment(true)
         } else {
             setOpen(true);
         }
@@ -51,7 +54,7 @@ const TrackPage: React.FC<TrackPageProps> = ({serverTrack}) => {
                                    setOpen(false);
                                }}
                            >
-                               <ClearIcon fontSize={'1rem'}/>
+                               <ClearIcon fontSize={"small"}/>
                            </IconButton>
                        }>
                     You can't add more than 1 comment in one time. End this first.
@@ -85,12 +88,12 @@ const TrackPage: React.FC<TrackPageProps> = ({serverTrack}) => {
                             <AddIcon className={styles.Icon}/>
                         </IconButton>
                     </Box>
-                    <Box className={(comments.length === 0 && newComment.length === 0) ? styles.NoCommentsText: ''}>
+                    <Box className={(comments.length === 0 && !newComment) ? styles.NoCommentsText: ''}>
                         {
-                            (comments.length === 0 && newComment.length === 0) ?
+                            (comments.length === 0 && !newComment) ?
                                 <span>No comments yet</span>
                                 :
-                                newComment
+                                <Comment isNew={true} handleClear={handleClearCommentClick}/>
                         }
                     </Box>
                 </Card>
